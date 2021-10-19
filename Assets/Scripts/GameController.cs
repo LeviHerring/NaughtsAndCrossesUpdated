@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 
     public Text[] buttonList;
 
-    private string playerSide;
+    public string playerSide;
 
     public GameObject gameOverPanel; public Text gameOverText;
 
@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(transform.gameObject);
         SetGameControllerReferenceOnButtons();
         gameOverPanel.SetActive(false);
         moveCount = 0;

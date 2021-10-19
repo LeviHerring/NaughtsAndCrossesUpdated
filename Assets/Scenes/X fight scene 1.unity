@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 181925095}
   - component: {fileID: 181925094}
   m_Layer: 5
-  m_Name: Text
+  m_Name: X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: O
+  m_Text: X
 --- !u!222 &181925095
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 1099504238}
   - component: {fileID: 1099504237}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: X
+  m_Text: O
 --- !u!222 &1099504238
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -692,6 +692,7 @@ MonoBehaviour:
   playerXHealth: {fileID: 1896052696}
   turnString: {fileID: 1808375691}
   turn: 1
+  hasWon: 0
   oHealthTextO: 
 --- !u!4 &1289398453
 Transform:

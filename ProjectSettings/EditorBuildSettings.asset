@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 791f815bcf8775544aad70e6b3cfcbf7
+  - enabled: 1
+    path: Assets/Scenes/X fight scene 1.unity
+    guid: dee3ae0570e10bc40ba950a99418f1ad
+  - enabled: 1
+    path: Assets/Scenes/O fight scene.unity
+    guid: d41c46ca77390db4490f6b512ba2acb7
   m_configObjects: {}

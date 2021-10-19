@@ -15,13 +15,18 @@ public class TurnBasedFight : MonoBehaviour
     public Text playerXHealth;
     public Text turnString; 
     public int turn = 1;
+    public bool hasWon; 
+
 
 
     public string oHealthTextO = "";
+
+    private GridSpace gridSpace;
     // Start is called before the first frame update
 
      void Awake()
     {
+        hasWon = false; 
         turn = 1;
         xHealth = 40;
         oHealth = 50;
@@ -41,7 +46,20 @@ public class TurnBasedFight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(xHealth <= 0 || oHealth <= 0)
+        {
+            if (xHealth <= 0)
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+            else if (oHealth <= 0)
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+
+
+        }
+
     }
 
     [System.Serializable]
@@ -84,10 +102,12 @@ public class TurnBasedFight : MonoBehaviour
         }
         else if (xHealth < 0)
         {
+            hasWon = true; 
             SceneManager.LoadScene("SampleScene");
         }
         else if (oHealth < 0)
         {
+            hasWon = false; 
             SceneManager.LoadScene("SampleScene");
         }
 

@@ -7,19 +7,23 @@ public class TurnBasedXs : MonoBehaviour
 {
     public GameObject Heal;
     public GameObject Attack;
-    public int xHealth = 40;
-    public int oHealth = 50;
+    public int xHealth = 50;
+    public int oHealth = 40;
     public Text playerOHealth;
     public Text playerXHealth;
     public Text turnString;
     public int turn = 1;
+    public bool hasWon;
 
 
     public string oHealthTextO = "";
+
+    private GridSpace gridSpace;
     // Start is called before the first frame update
 
     void Awake()
     {
+        hasWon = false; 
         turn = 1;
         xHealth = 40;
         oHealth = 50;
@@ -64,6 +68,7 @@ public class TurnBasedXs : MonoBehaviour
                 {
                     oHealth = 0;
                     playerOHealth.text = "X health is 0, you lost this fight";
+                    hasWon = false; 
                     SceneManager.LoadScene("SampleScene");
 
                 }
@@ -82,10 +87,12 @@ public class TurnBasedXs : MonoBehaviour
         }
         else if (xHealth < 0)
         {
+            hasWon = true; 
             SceneManager.LoadScene("SampleScene");
         }
         else if (oHealth < 0)
         {
+            hasWon = false; 
             SceneManager.LoadScene("SampleScene");
         }
 
