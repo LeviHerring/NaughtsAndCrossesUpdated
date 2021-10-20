@@ -18,11 +18,39 @@ public class TurnBasedXs : MonoBehaviour
 
     public string oHealthTextO = "";
 
-    private GridSpace gridSpace;
+    public GridSpace gridSpace;
+    public GameController gameController;
     // Start is called before the first frame update
 
     void Awake()
     {
+        if (xHealth <= 0 || oHealth <= 0)
+        {
+            if (xHealth <= 0)
+            {
+                //gridSpace.buttonText.text = "O";
+                //gridSpace.SetFightSpace("O");
+                SceneManager.LoadScene("SampleScene");
+
+            }
+            else if (oHealth <= 0)
+            {
+                //gridSpace.buttonText.text = "X";
+                //gridSpace.SetFightSpace("X");
+                SceneManager.LoadScene("SampleScene");
+
+            }
+
+
+            Debug.Log("turn value:" + gridSpace.selectButton);
+
+
+            gridSpace.button.interactable = false;
+            gameController.EndTurn();
+            SceneManager.LoadScene("SampleScene");
+
+        }
+
         hasWon = false; 
         turn = 1;
         xHealth = 40;
@@ -71,6 +99,11 @@ public class TurnBasedXs : MonoBehaviour
                     hasWon = false; 
                     SceneManager.LoadScene("SampleScene");
 
+                }
+                else if (xHealth < 0)
+                {
+                    xHealth = 0;
+                    SceneManager.LoadScene("SampleScene");
                 }
                 playerOHealth.text = "Your health is " + oHealth;
                 turn++;

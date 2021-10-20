@@ -21,10 +21,22 @@ public class GameController : MonoBehaviour
     public PlayerColor activePlayerColor;
     public PlayerColor inactivePlayerColor;
 
+    public bool isCreated = false;
+
+    public static GameController instance = null; 
+
 
     void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        if (instance == null)
+        {
+            instance = this; 
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject); 
+        }
+        DontDestroyOnLoad(gameObject); 
         SetGameControllerReferenceOnButtons();
         gameOverPanel.SetActive(false);
         moveCount = 0;

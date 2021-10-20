@@ -21,10 +21,11 @@ public class TurnBasedFight : MonoBehaviour
 
     public string oHealthTextO = "";
 
-    private GridSpace gridSpace;
+    public   GridSpace gridSpace;
+    public GameController gameController;
     // Start is called before the first frame update
 
-     void Awake()
+    void Awake()
     {
         hasWon = false; 
         turn = 1;
@@ -50,15 +51,29 @@ public class TurnBasedFight : MonoBehaviour
         {
             if (xHealth <= 0)
             {
+                //gridSpace.buttonText.text = "O";
+                //gridSpace.SetFightSpace("O");
                 SceneManager.LoadScene("SampleScene");
+
             }
             else if (oHealth <= 0)
             {
+                //gridSpace.buttonText.text = "X";
+                //gridSpace.SetFightSpace("X");
                 SceneManager.LoadScene("SampleScene");
+
             }
 
 
+            Debug.Log("turn value:" + gridSpace.selectButton); 
+
+
+            gridSpace.button.interactable = false;
+            gameController.EndTurn();
+            SceneManager.LoadScene("SampleScene");
+
         }
+
 
     }
 
@@ -86,6 +101,10 @@ public class TurnBasedFight : MonoBehaviour
                     playerOHealth.text = "O health is 0, you lost this fight";
                     SceneManager.LoadScene("SampleScene");
 
+                }
+                else if (xHealth < 0)
+                {
+                    SceneManager.LoadScene("SampleScene");
                 }
                 playerOHealth.text = "Your health is " + oHealth;
                 turn++;

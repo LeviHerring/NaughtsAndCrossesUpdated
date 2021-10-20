@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using System;
 
 public class GridSpace : MonoBehaviour
 {
     public Button button;
     public Text buttonText;
+    public Button selectButton;
     //public string playerSide;
 
     private GameController gameController;
@@ -28,39 +30,54 @@ public class GridSpace : MonoBehaviour
     {
         //DontDestroyOnLoad(transform.gameObject);
     }
-    public void SetSpace()
+
+    public void SetFightSpace(string fightResultValue)
     {
+        button.interactable = false;
+
+        buttonText.text = fightResultValue;
+    }
+        public void SetSpace()
+    {
+
+       
         if(gameController.GetPlayerSide() == "X")
         {
+
             SceneManager.LoadScene("X fight scene 1");
-        //    if(gameObject.GetComponent<TurnBasedXs>().hasWon == true)
-        //    {
-        //        buttonText.text = gameController.GetPlayerSide();
-        //        button.interactable = false;
-        //        gameController.EndTurn();
-        //    }
-        //    else
-        //    {
-        //        buttonText.text = gameController.GetPlayerSide();
-        //        button.interactable = false;
-        //        gameController.EndTurn();
-        //    }
+            //if (gameObject.GetComponent<TurnBasedXs>().hasWon == true)
+            //{
+            //    buttonText.text = gameController.GetPlayerSide();
+            //    button.interactable = false;
+            //    gameController.EndTurn();
+            //}
+            //else
+            //{
+            //    buttonText.text = gameController.GetPlayerSide();
+            //    button.interactable = false;
+            //    gameController.EndTurn();
+            //}
+
+
         }
         else
         {
             SceneManager.LoadScene("O fight scene");
-        //    if (gameObject.GetComponent<TurnBasedXs>().hasWon == true)
-        //    {
-        //        buttonText.text = gameController.GetPlayerSide();
-        //        button.interactable = false;
-        //        gameController.EndTurn();
-        //    }
-        //    else
-        //    {
-        //        gameController.EndTurn();
-           //}
+            //if (gameObject.GetComponent<TurnBasedXs>().hasWon == true)
+            //{
+            //    buttonText.text = gameController.GetPlayerSide();
+            //    button.interactable = false;
+            //    gameController.EndTurn();
+            //}
+            //else
+            //{
+            //    gameController.EndTurn();
+            //}
         }
-        //buttonText.text = playerSide;
+
+        selectButton = button ;
+        Debug.Log(selectButton);
+       
 
     }
     public void SetGameControllerReference(GameController controller)

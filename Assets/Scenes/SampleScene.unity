@@ -487,6 +487,7 @@ MonoBehaviour:
   inactivePlayerColor:
     panelColor: {r: 0.21568628, g: 0.25882354, b: 0.3019608, a: 1}
     textColor: {r: 0, g: 0.8, b: 0.8, a: 1}
+  isCreated: 0
 --- !u!114 &274320559 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3064555472636922333, guid: 85f928a8b6ae619468c2af20acb106c4,
