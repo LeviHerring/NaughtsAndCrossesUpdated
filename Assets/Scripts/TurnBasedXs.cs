@@ -24,6 +24,29 @@ public class TurnBasedXs : MonoBehaviour
 
     void Awake()
     {
+
+        GetComponent<GridSpace>();
+        GetComponent<GameController>(); 
+        hasWon = false; 
+        turn = 1;
+        xHealth = 40;
+        oHealth = 50;
+        playerOHealth.text = "Your health is " + oHealth;
+        playerXHealth.text = "Your health is " + xHealth;
+    }
+
+    void Start()
+    {
+        //turn = 0; 
+        //xHealth = 40;
+        //oHealth = 50;
+        //playerOHealth.text = "Your health is " + oHealth;
+        // playerXHealth.text = "Your health is " + xHealth;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (xHealth <= 0 || oHealth <= 0)
         {
             if (xHealth <= 0)
@@ -50,28 +73,6 @@ public class TurnBasedXs : MonoBehaviour
             SceneManager.LoadScene("SampleScene");
 
         }
-
-        hasWon = false; 
-        turn = 1;
-        xHealth = 40;
-        oHealth = 50;
-        playerOHealth.text = "Your health is " + oHealth;
-        playerXHealth.text = "Your health is " + xHealth;
-    }
-
-    void Start()
-    {
-        //turn = 0; 
-        //xHealth = 40;
-        //oHealth = 50;
-        //playerOHealth.text = "Your health is " + oHealth;
-        // playerXHealth.text = "Your health is " + xHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     [System.Serializable]
